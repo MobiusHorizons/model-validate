@@ -1,0 +1,26 @@
+{
+  "name": "model-validate",
+  "version": "0.1.0",
+  "description": "Data validation framework for MVC",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "mocha test",
+    "build": "webpack",
+    "dev": "webpack --watch",
+    "pretest": "npm run build",
+    "prepublish": "npm run test"
+  },
+  "author": "Paul Martin <codemobius@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "luhn": "^2.1.0"
+  }
+}
