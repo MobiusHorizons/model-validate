@@ -1,3 +1,4 @@
+/** @module ModelValidate */
 export required   from './required'
 export phone      from './phone'
 export creditCard from './credit-card'
@@ -15,11 +16,24 @@ const defaultValidators = {
     'zip-code'    : zipCode,
 }
 
+/** Class for synchronous validation.*/
 export class SyncValidator{
+    /** get an instance of `SyncValidator` with any custom validators you want */
     constructor(validators = {}){
         this.validators = Object.assign({},defaultValidators,validators);
     }
 
+    /**
+    * Validate a `model` according to the validators set up in `mask`
+    * @param model Object Data to be validated Ex: `{ phone : "123-456-7890" }`
+    * @param mask Object  Validators to be applied to model. Ex: `{ phone : ['required', 'phone']}`
+    *
+    *   The following validators are provided by default
+    * - **required**    checks for non-null, non-whitespace, non-empty strings or Numbers
+    * - **phone**       validates 10 or 11 digit phone numbers reguardless of formatting characters
+    * - **credit-card** validates credit card numbers according to a LUHN-10 check
+    * - **zip-code**    validates American 5-digit and 9-digit zip codes* 
+    */
     validate(model, mask){
         // walk through each field in mask, and run the appropriate validator against model
         let output = {};

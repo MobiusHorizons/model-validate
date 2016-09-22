@@ -2,7 +2,7 @@ export function strip (zip_code = '') {
     if (typeof(zip_code) != 'string'){
         zip_code = zip_code.toString();
     }
-    zip_code = zip_code.replace(/[^\d-\s]/g, "" )
+    zip_code = zip_code.replace(/[^-\d\s]/g, "" )
     return zip_code.trim(); // trim leading/trailing whitespace;
 }
 

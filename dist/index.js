@@ -54,7 +54,8 @@ module.exports =
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /** @module ModelValidate */
+
 
 	var _required2 = __webpack_require__(1);
 
@@ -89,7 +90,10 @@ module.exports =
 	    'zip-code': _zipCode3.default
 	};
 
+	/** Class for synchronous validation.*/
+
 	var SyncValidator = exports.SyncValidator = function () {
+	    /** get an instance of `SyncValidator` with any custom validators you want */
 	    function SyncValidator() {
 	        var validators = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
@@ -97,6 +101,19 @@ module.exports =
 
 	        this.validators = Object.assign({}, defaultValidators, validators);
 	    }
+
+	    /**
+	    * Validate a `model` according to the validators set up in `mask`
+	    * @param model Object Data to be validated Ex: `{ phone : "123-456-7890" }`
+	    * @param mask Object  Validators to be applied to model. Ex: `{ phone : ['required', 'phone']}`
+	    *
+	    *   The following validators are provided by default
+	    * - **required**    checks for non-null, non-whitespace, non-empty strings or Numbers
+	    * - **phone**       validates 10 or 11 digit phone numbers reguardless of formatting characters
+	    * - **credit-card** validates credit card numbers according to a LUHN-10 check
+	    * - **zip-code**    validates American 5-digit and 9-digit zip codes* 
+	    */
+
 
 	    _createClass(SyncValidator, [{
 	        key: 'validate',
@@ -269,7 +286,7 @@ module.exports =
 	    if (typeof zip_code != 'string') {
 	        zip_code = zip_code.toString();
 	    }
-	    zip_code = zip_code.replace(/[^\d-\s]/g, "");
+	    zip_code = zip_code.replace(/[^-\d\s]/g, "");
 	    return zip_code.trim(); // trim leading/trailing whitespace;
 	}
 
