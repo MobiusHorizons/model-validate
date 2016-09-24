@@ -1,4 +1,4 @@
-# ModelValidate [![Build Status](https://travis-ci.org/MobiusHorizons/model-validate.svg?branch=master)](https://travis-ci.org/MobiusHorizons/model-validate)
+# ModelValidate [![Circle CI](https://circleci.com/gh/MobiusHorizons/model-validate.svg?style=svg)](https://circleci.com/gh/MobiusHorizons/model-validate)
 > MVC validation for JavaScript
 
 # SyncValidator
