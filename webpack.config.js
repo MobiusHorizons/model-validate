@@ -12,7 +12,7 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         loaders: [
-          'babel-loader?presets[]=es2015,presets[]=stage-0',
+          'babel-loader?plugins[]=transform-object-assign,presets[]=es2015,presets[]=stage-0',
         ],
       },
     ],

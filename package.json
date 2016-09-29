@@ -1,6 +1,6 @@
 {
   "name": "model-validate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Data validation framework for MVC",
   "main": "dist/index.js",
   "scripts": {
@@ -21,6 +21,7 @@
     "webpack": "^1.13.2"
   },
   "dependencies": {
+    "babel-plugin-transform-object-assign": "^6.8.0",
     "luhn": "^2.1.0"
   }
 }
